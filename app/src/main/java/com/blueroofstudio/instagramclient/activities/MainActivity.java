@@ -1,7 +1,8 @@
-package com.blueroofstudio.instagramclient;
+package com.blueroofstudio.instagramclient.activities;
 
 import android.os.Bundle;
 
+import com.blueroofstudio.instagramclient.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
