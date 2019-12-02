@@ -25,4 +25,12 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="@string/login" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_close"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/close" />
+
 </LinearLayout>
