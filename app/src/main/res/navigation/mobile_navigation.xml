@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_fruits">
+
+    <fragment
+        android:id="@+id/nav_fruits"
+        android:name="com.blueroofstudio.instagramclient.fragments.fruits.FruitsFragment"
+        android:label="@string/menu_fruits"
+        tools:layout="@layout/fragment_image" />
+
+    <fragment
+        android:id="@+id/nav_veggies"
+        android:name="com.blueroofstudio.instagramclient.fragments.veggies.VeggiesFragment"
+        android:label="@string/menu_veggies"
+        tools:layout="@layout/fragment_image" />
+
+    <fragment
+        android:id="@+id/nav_nature"
+        android:name="com.blueroofstudio.instagramclient.fragments.nature.NatureFragment"
+        android:label="@string/menu_nature"
+        tools:layout="@layout/fragment_image" />
+
+</navigation>
