@@ -33,6 +33,15 @@ public class NatureFragment extends Fragment {
                 imageView.setImageResource(s);
             }
         });
+
+        final TextView textView = root.findViewById(R.id.textView);
+        natureViewModel.getText().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(@Nullable Integer s) {
+                textView.setText(s);
+            }
+        });
+
         return root;
     }
 }
