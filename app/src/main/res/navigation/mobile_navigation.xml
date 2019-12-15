@@ -2,25 +2,39 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_fruits">
 
     <fragment
         android:id="@+id/nav_fruits"
-        android:name="com.blueroofstudio.instagramclient.fragments.fruits.FruitsFragment"
+        android:name="com.blueroofstudio.instagramclient.fragments.ListFragment"
         android:label="@string/menu_fruits"
-        tools:layout="@layout/fragment_image" />
+        tools:layout="@layout/fragment_list">
+        <argument
+            android:name="type"
+            android:defaultValue="fruits"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_veggies"
-        android:name="com.blueroofstudio.instagramclient.fragments.veggies.VeggiesFragment"
+        android:name="com.blueroofstudio.instagramclient.fragments.ListFragment"
         android:label="@string/menu_veggies"
-        tools:layout="@layout/fragment_image" />
+        tools:layout="@layout/fragment_list">
+        <argument
+            android:name="type"
+            android:defaultValue="veggies"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_nature"
-        android:name="com.blueroofstudio.instagramclient.fragments.nature.NatureFragment"
+        android:name="com.blueroofstudio.instagramclient.fragments.ListFragment"
         android:label="@string/menu_nature"
-        tools:layout="@layout/fragment_image" />
+        tools:layout="@layout/fragment_list">
+        <argument
+            android:name="type"
+            android:defaultValue="nature"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
