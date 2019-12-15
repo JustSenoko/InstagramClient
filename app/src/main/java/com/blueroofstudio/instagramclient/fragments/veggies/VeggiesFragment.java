@@ -32,6 +32,14 @@ public class VeggiesFragment extends Fragment {
                 imageView.setImageResource(s);
             }
         });
+
+        final TextView textView = root.findViewById(R.id.textView);
+        veggiesViewModel.getText().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(@Nullable Integer s) {
+                textView.setText(s);
+            }
+        });
         return root;
     }
 }

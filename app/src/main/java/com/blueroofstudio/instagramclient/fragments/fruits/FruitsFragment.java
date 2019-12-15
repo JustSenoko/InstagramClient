@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,15 @@ public class FruitsFragment extends Fragment {
                 imageView.setImageResource(s);
             }
         });
+
+        final TextView textView = root.findViewById(R.id.textView);
+        fruitsViewModel.getText().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(@Nullable Integer s) {
+                textView.setText(s);
+            }
+        });
+
         return root;
     }
 }
