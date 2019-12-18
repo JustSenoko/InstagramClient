@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/nav_fruits"
-        android:name="com.blueroofstudio.instagramclient.fragments.ListFragment"
+        android:name="com.blueroofstudio.instagramclient.fragments.list.ListFragment"
         android:label="@string/menu_fruits"
         tools:layout="@layout/fragment_list">
         <argument
@@ -17,18 +17,14 @@
 
     <fragment
         android:id="@+id/nav_veggies"
-        android:name="com.blueroofstudio.instagramclient.fragments.ListFragment"
+        android:name="com.blueroofstudio.instagramclient.fragments.tabs.TabsFragment"
         android:label="@string/menu_veggies"
-        tools:layout="@layout/fragment_list">
-        <argument
-            android:name="type"
-            android:defaultValue="veggies"
-            app:argType="string" />
+        tools:layout="@layout/fragment_tabs">
     </fragment>
 
     <fragment
         android:id="@+id/nav_nature"
-        android:name="com.blueroofstudio.instagramclient.fragments.ListFragment"
+        android:name="com.blueroofstudio.instagramclient.fragments.list.ListFragment"
         android:label="@string/menu_nature"
         tools:layout="@layout/fragment_list">
         <argument

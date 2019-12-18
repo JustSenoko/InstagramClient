@@ -1,4 +1,4 @@
-package com.blueroofstudio.instagramclient.fragments;
+package com.blueroofstudio.instagramclient.fragments.list;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,11 +22,19 @@ import java.util.Objects;
 
 public class ListFragment extends Fragment {
 
-    private ListViewModel fruitsViewModel;
+    private ListViewModel viewModel;
+
+    public static ListFragment newInstance(String type) {
+        ListFragment fragment = new ListFragment();
+        Bundle args = new Bundle();
+        args.putString("type", type);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        fruitsViewModel =
+        viewModel =
                 ViewModelProviders.of(this).get(ListViewModel.class);
         View root = inflater.inflate(R.layout.fragment_list, container, false);
 
@@ -46,7 +54,7 @@ public class ListFragment extends Fragment {
         final RVAdapter adapter = new RVAdapter(new ArrayList<Item>());
         recyclerView.setAdapter(adapter);
 
-        fruitsViewModel.getItemList(listType).observe(this, new Observer<List<Item>>() {
+        viewModel.getItemList(listType).observe(this, new Observer<List<Item>>() {
             @Override
             public void onChanged(List<Item> items) {
                 adapter.update(items);
