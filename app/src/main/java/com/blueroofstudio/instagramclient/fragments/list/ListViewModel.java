@@ -1,4 +1,4 @@
-package com.blueroofstudio.instagramclient.fragments;
+package com.blueroofstudio.instagramclient.fragments.list;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
