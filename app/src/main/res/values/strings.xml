@@ -12,4 +12,7 @@
     <string name="close">Close</string>
     <string name="open_nav_drawer">Open navigation drawer</string>
     <string name="close_nav_drawer">Close navigation drawer</string>
+    <string name="theme0">Theme0</string>
+    <string name="theme1">Theme1</string>
+    <string name="theme2">Theme2</string>
 </resources>

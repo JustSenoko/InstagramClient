@@ -1,7 +1,10 @@
 package com.blueroofstudio.instagramclient.activities;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -16,12 +19,28 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_THEME = "EXTRA_THEME";
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
+    private int themeNumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            themeNumber = savedInstanceState.getInt(EXTRA_THEME);
+            setActivityTheme();
+        }
+        initView();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(EXTRA_THEME, themeNumber);
+    }
+
+    private void initView() {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -43,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
     }
 
     @Override
@@ -52,4 +70,44 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.theme1:
+                themeNumber = 1;
+                break;
+            case R.id.theme2:
+                themeNumber = 2;
+                break;
+            default:
+                themeNumber = 0;
+                break;
+        }
+        recreate();
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setActivityTheme() {
+        switch (themeNumber) {
+            case 1:
+                setTheme(R.style.Theme1);
+                break;
+            case 2:
+                setTheme(R.style.Theme2);
+                break;
+            default:
+                setTheme(R.style.AppTheme_NoActionBar);
+                break;
+        }
+    }
+
 }
